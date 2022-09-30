@@ -4,21 +4,6 @@ body {
     color: white;
 }
 
-#gameBoard {
-    background-color: lightgrey;
-    height: 450px;
-    width: 450px;
-    margin: 0 auto;
-    /* CSS grid */
-    display: grid;
-    grid-template-columns: repeat(18, 1fr);
-    grid-template-rows: repeat(18, 1fr);
-}
-
-.snake {
-    background-color: green;
-}
-
-.apple {
-    background-color: red;
+canvas {
+    border: 1px solid black;
 }
