@@ -4,11 +4,12 @@ gameCanvas.height = 650;
 gameCanvas.width = 650;
 
 function updateGameCanvas() {
-    // Initialises the board colour
+    // Draws the gameboard
     context.fillStyle = "lightgrey";
     context.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
     drawApple();
     drawSnake();
+    drawSnakeParts();
 }
 
 function drawSnake() {
@@ -16,7 +17,14 @@ function drawSnake() {
     context.fillRect(snakeCol, snakeRow, boxSize, boxSize);
 }
 
+function drawSnakeParts() {
+    for (let i = 1; i < snakeBody.length; ++i) {
+        context.fillStyle = "lightgreen";
+        context.fillRect(snakeBody[i][1], snakeBody[i][0], boxSize, boxSize);
+    }
+}
+
 function drawApple() {
     context.fillStyle = "red";
-    context.fillRect(appleRow, appleCol, boxSize, boxSize);
+    context.fillRect(appleCol, appleRow, boxSize, boxSize);
 }
