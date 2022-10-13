@@ -3,18 +3,26 @@ let boxSize = 25;
 // Snake head starting position
 let snakeRow = boxSize * 12;
 let snakeCol = boxSize * 6;
+
+// Stores the snake's body parts coordinates
 let snakeBody = [];
+
+// Snake's direction
 let snakeDirection = "";
+
 // Stores apple coordinates
 let appleCol;
 let appleRow;
+
+// Stores the interval variable where the game loops
 let loopInterval;
+
 // Points
 let points = 0;
-let displayPoints = document.getElementById("points");
-// Game status
 
 window.onload = function () {
+        // Event Listener to detect arrow input
+        document.addEventListener("keydown", setDirection);
         setApple();
         updateGameCanvas();
         loopInterval = setInterval(gameLoop, 1000/8); // Updates the canvas 8 times per second
@@ -40,16 +48,13 @@ function gameLoop() {
         updateGameCanvas();
 }
 
-// Generates random coordinates for apple
+// Generates random coordinates for the apple
 function setApple() {
         appleRow = Math.floor(Math.random() * 26) * boxSize;
         appleCol = Math.floor(Math.random() * 26) * boxSize;
 }
 
-// Event Listener to detect arrow input
-document.addEventListener("keydown", setDirection);
-
-// Every condition checks the snakeDirection so that the snake does not reverse into itself
+// Sets the snake's direction
 function setDirection(pressedKey) {
         if (pressedKey.key == "ArrowUp" && snakeDirection != "DOWN") {
                 snakeDirection = "UP";
@@ -69,7 +74,7 @@ function checkApple() {
                 setApple();
                 // Updates the points displayed
                 ++points;
-                displayPoints.innerHTML = points;
+                document.getElementById("points").innerHTML = points;
         }
 }
 

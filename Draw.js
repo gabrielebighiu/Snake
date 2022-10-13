@@ -9,15 +9,13 @@ function updateGameCanvas() {
     context.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
     drawApple();
     drawSnake();
-    drawSnakeParts();
 }
 
 function drawSnake() {
+    // Draws the snake's head
     context.fillStyle = "green";
     context.fillRect(snakeCol, snakeRow, boxSize, boxSize);
-}
-
-function drawSnakeParts() {
+    // Draws the snake's body if there are any
     for (let i = 1; i < snakeBody.length; ++i) {
         context.fillStyle = "lightgreen";
         context.fillRect(snakeBody[i][1], snakeBody[i][0], boxSize, boxSize);
